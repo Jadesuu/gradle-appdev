@@ -2,18 +2,19 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
 }
 
-test {
-    useJUnitPlatform()
+tasks.register('main'){
+    dependsOn 'clean'
+    dependsOn 'javadoc'
+    dependsOn 'jar'
+    tasks.findByName('javadoc').mustRunAfter 'clean'
+    tasks.findByName('jar').mustRunAfter 'javadoc'
 }
