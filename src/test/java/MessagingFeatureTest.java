@@ -6,9 +6,11 @@ class MessagingFeatureTest {
 
     @Test
     void send() {
+        assertEquals("Hello", MessagingFeature.send("Hello"));
     }
 
     @Test
     void receive() {
+        assertEquals("Hello", MessagingFeature.receive("Hello"));
     }
 }

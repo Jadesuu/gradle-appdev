@@ -7,6 +7,7 @@ public class ProfileFeature {
      * @param status status to be set
      */
     public static void setStatus(String status) {
+        
     }
 
     /**
